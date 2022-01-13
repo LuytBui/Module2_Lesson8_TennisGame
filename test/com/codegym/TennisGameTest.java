@@ -1,6 +1,5 @@
 package com.codegym;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,7 +7,7 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(Parameterized.class)
 public class TennisGameTest {
@@ -70,14 +69,14 @@ public class TennisGameTest {
     @Test
     public void checkAllScores() {
         int highestScore = Math.max(this.player1Score, this.player2Score);
-        int m_score1 = 0;
-        int m_score2 = 0;
+        int score1 = 0;
+        int score2 = 0;
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
-                m_score1 += 1;
+                score1 += 1;
             if (i < this.player2Score)
-                m_score2 += 1;
+                score2 += 1;
         }
-        assertEquals(this.expectedScore, TennisGame.getScore("John", "Bill", m_score1, m_score2));
+        assertEquals(this.expectedScore, TennisGame.getScore("John", "Bill", score1, score2));
     }
 }
